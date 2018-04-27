@@ -3,7 +3,7 @@ IFS=$'\n\t'
 
 appName=${1:-}
 if [[ -z "$appName" ]]; then
-  echo "Usage: $0 <unique_app_name>"
+  echo "Usage: $0 infinite-shelf-73014"
   exit 1
 fi
   
@@ -14,7 +14,7 @@ heroku buildpacks:set https://github.com/energizedwork/heroku-buildpack-runnable
 git push heroku master
 sleep 2
 
-wiremockUri=http://${appName}.herokuapp.com
+wiremockUri=http://${infinite-shelf-73014}.herokuapp.com
 
 curl ${wiremockUri}/__admin/mappings/new \
 -d '{ "request": { "url": "/", "method": "GET" }, "response": { "body": "**********\nWireMock is now  running on Heroku at '$wiremockUri'\n**********\n" }}'
